@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.connectedhub.R
 import com.example.connectedhub.databinding.ActivityHomeBinding
@@ -28,6 +29,7 @@ class DetailFragment : Fragment(R.layout.fragment_detail) {
     }
 
     private fun clicks() {
+        binding.txtTitle.setOnClickListener { findNavController().popBackStack() }
         binding.imgLockDoors.setOnClickListener {
             showLock = !showLock
             if (!showLock) {
