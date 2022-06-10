@@ -17,6 +17,11 @@ import com.example.connectedhub.models.Car
 class HomeFragment : Fragment(R.layout.fragment_home) {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var dataCar : Car
+    private val cars = arrayListOf<Car>(
+        Car("AUDI A8", R.drawable.a8),
+        Car("AUDI Q7", R.drawable.q7),
+        Car("BMW i8", R.drawable.i8)
+    )
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         binding = FragmentHomeBinding.bind(view)
@@ -27,21 +32,15 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
 
     private fun clicks() {
         binding.imgSelect.setOnClickListener {
+            dataCar = cars[binding.viewPager2.currentItem % 3]
             val action  = HomeFragmentDirections.actionHomeFragmentToDetailFragment(dataCar.name,dataCar.image)
             findNavController().navigate(action)
         }
     }
 
     private fun obtainData() {
-        val cars = arrayListOf<Car>(
-            Car("AUDI A8", R.drawable.a8),
-            Car("AUDI Q7", R.drawable.q7),
-            Car("BMW i8", R.drawable.i8)
-        )
         binding.viewPager2.orientation = ViewPager2.ORIENTATION_HORIZONTAL
-        binding.viewPager2.adapter = CarsAdapter(cars) {
-            handleCarData(it)
-        }
+        binding.viewPager2.adapter = CarsAdapter(cars)
         binding.viewPager2.setCurrentItem(Int.MAX_VALUE/2, false)
         binding.imgLeft.setOnClickListener {
             binding.viewPager2.currentItem = binding.viewPager2.currentItem - 1
@@ -50,13 +49,6 @@ class HomeFragment : Fragment(R.layout.fragment_home) {
             binding.viewPager2.currentItem = binding.viewPager2.currentItem + 1
         }
 
-    }
-
-    private fun handleCarData(data: Car) {
-         dataCar = data
-        binding.switch1.setOnClickListener {
-            println(data)
-        }
     }
 
     private fun animations() {
