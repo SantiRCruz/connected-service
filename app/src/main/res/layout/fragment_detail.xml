@@ -255,7 +255,7 @@
                         android:layout_height="wrap_content">
 
                         <ImageView
-                            android:id="@+id/imageView8"
+                            android:id="@+id/imgStartEngine"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:src="@drawable/img_11"
@@ -263,8 +263,45 @@
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toTopOf="parent" />
 
+                        <ProgressBar
+                            android:id="@+id/lockDoors"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:indeterminate="true"
+                            android:progressTint="@color/white"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/imgLockDoors"
+                            app:layout_constraintEnd_toEndOf="@+id/imgLockDoors"
+                            app:layout_constraintStart_toStartOf="@+id/imgLockDoors"
+                            app:layout_constraintTop_toTopOf="@+id/imgLockDoors" />
+
+                        <ProgressBar
+                            android:id="@+id/startEngine"
+                            android:layout_width="100dp"
+                            android:layout_height="100dp"
+                            android:indeterminate="true"
+                            android:progressTint="@color/white"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@id/imgStartEngine"
+                            app:layout_constraintEnd_toEndOf="@+id/imgStartEngine"
+                            app:layout_constraintStart_toStartOf="@+id/imgStartEngine"
+                            app:layout_constraintTop_toTopOf="@+id/imgStartEngine" />
+
+
+                        <ProgressBar
+                            android:id="@+id/unlockDoors"
+                            android:layout_width="70dp"
+                            android:layout_height="70dp"
+                            android:indeterminate="true"
+                            android:progressTint="@color/white"
+                            android:visibility="gone"
+                            app:layout_constraintBottom_toBottomOf="@+id/imgUnlockDoors"
+                            app:layout_constraintEnd_toEndOf="@+id/imgUnlockDoors"
+                            app:layout_constraintStart_toStartOf="@+id/imgUnlockDoors"
+                            app:layout_constraintTop_toTopOf="@+id/imgUnlockDoors" />
+
                         <ImageView
-                            android:id="@+id/imageView9"
+                            android:id="@+id/imgLockDoors"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
@@ -273,7 +310,7 @@
                             app:layout_constraintTop_toTopOf="parent" />
 
                         <ImageView
-                            android:id="@+id/imageView10"
+                            android:id="@+id/imgUnlockDoors"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
@@ -287,20 +324,21 @@
                             android:layout_height="wrap_content"
                             android:text="Lock Doors"
                             android:textColor="@color/gray_2"
-                            app:layout_constraintEnd_toEndOf="@+id/imageView9"
-                            app:layout_constraintStart_toStartOf="@+id/imageView9"
-                            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+                            app:layout_constraintEnd_toEndOf="@+id/imgLockDoors"
+                            app:layout_constraintStart_toStartOf="@+id/imgLockDoors"
+                            app:layout_constraintTop_toBottomOf="@+id/imgLockDoors" />
 
                         <TextView
+                            android:id="@+id/textView8"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginBottom="19dp"
                             android:text="Start Engine"
                             android:textColor="@color/gray_2"
                             app:layout_constraintBottom_toBottomOf="parent"
-                            app:layout_constraintEnd_toEndOf="@+id/imageView8"
-                            app:layout_constraintStart_toStartOf="@+id/imageView8"
-                            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+                            app:layout_constraintEnd_toEndOf="@+id/imgStartEngine"
+                            app:layout_constraintStart_toStartOf="@+id/imgStartEngine"
+                            app:layout_constraintTop_toBottomOf="@+id/imgLockDoors" />
 
                         <TextView
                             android:layout_width="wrap_content"
@@ -308,8 +346,8 @@
                             android:text="Unlock Doors"
                             android:textColor="@color/gray_2"
                             app:layout_constraintEnd_toEndOf="parent"
-                            app:layout_constraintStart_toStartOf="@+id/imageView10"
-                            app:layout_constraintTop_toBottomOf="@+id/imageView9" />
+                            app:layout_constraintStart_toStartOf="@+id/imgUnlockDoors"
+                            app:layout_constraintTop_toBottomOf="@+id/imgLockDoors" />
 
 
                     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -670,24 +708,37 @@
 
 
     <ImageView
+        android:id="@+id/imgStartEngine2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/img_20"
         app:layout_constraintBottom_toBottomOf="@+id/scrollView2"
         app:layout_constraintEnd_toEndOf="parent" />
 
+    <ProgressBar
+        android:id="@+id/startEngine2"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:indeterminate="true"
+        android:progressTint="@color/white"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/imgStartEngine2"
+        app:layout_constraintEnd_toEndOf="@id/imgStartEngine2"
+        app:layout_constraintStart_toStartOf="@+id/imgStartEngine2"
+        app:layout_constraintTop_toTopOf="@+id/imgStartEngine2" />
+
     <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="@color/black_2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@color/black_2"
-        >
+        app:layout_constraintTop_toTopOf="parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+
             <TextView
                 android:id="@+id/txtTitle"
                 android:layout_width="wrap_content"
@@ -733,8 +784,6 @@
 
 
     </androidx.appcompat.widget.Toolbar>
-
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
